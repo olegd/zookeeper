@@ -251,7 +251,7 @@ namespace ZooKeeperNet
         {
             TcpClient clientToCleanup = this.client;
             this.client = null;
-            Cleanup(client);
+            Cleanup(clientToCleanup);
         }
 
         private void StartConnect()
