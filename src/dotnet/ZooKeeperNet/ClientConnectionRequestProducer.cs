@@ -231,10 +231,6 @@ namespace ZooKeeperNet
                     if (LOG.IsDebugEnabled)
                         LOG.Debug("Ignoring exception during channel close", e);
                 }
-                finally
-                {
-                    tcpClient = null;
-                }
             }
 
             lock (outgoingQueue)
@@ -253,6 +249,8 @@ namespace ZooKeeperNet
 
         private void Cleanup()
         {
+            TcpClient clientToCleanup = this.client;
+            this.client = null;
             Cleanup(client);
         }
 
