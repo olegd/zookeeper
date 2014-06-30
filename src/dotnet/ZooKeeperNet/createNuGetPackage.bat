@@ -1,1 +1,1 @@
-nuget pack ZooKeeperNet.csproj -Prop Configuration=Release
+nuget pack ZooKeeperNet.csproj -Prop Configuration=Release -IncludeReferencedProjects

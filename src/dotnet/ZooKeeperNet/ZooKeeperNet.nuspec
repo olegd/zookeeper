@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Apache.Zookeeper.Net.Client</id>
-    <version>$version$</version>
+    <version>3.3.4.9-alpha2</version>
     <title>Apache.Zookeeper.Net.Client</title>
     <authors>Apache ZooKeeper</authors>
     <owners>Oleg Demchenko</owners>
@@ -12,5 +12,8 @@
     </releaseNotes>
     <copyright> Apache License Version 2.0, January 2004</copyright>
     <tags>Apache Zookeeper .Net-Client</tags>
+    <dependencies>
+      <dependency id="log4net" version="2.0.3" />
+    </dependencies>
   </metadata>
 </package>
