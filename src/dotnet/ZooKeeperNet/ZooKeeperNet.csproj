@@ -177,6 +177,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\ZooKeeperKey.snk" />
+    <None Include="createNuGetPackage.bat" />
+    <None Include="ZooKeeperNet.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

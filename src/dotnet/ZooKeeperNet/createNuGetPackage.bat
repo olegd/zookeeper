@@ -1,0 +1,1 @@
+nuget pack ZooKeeperNet.csproj -Prop Configuration=Release
