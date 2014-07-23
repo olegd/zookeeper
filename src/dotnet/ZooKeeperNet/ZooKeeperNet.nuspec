@@ -2,13 +2,14 @@
 <package >
   <metadata>
     <id>Apache.Zookeeper.Net.Client</id>
-    <version>3.3.4.9</version>
+    <version>3.3.4.10</version>
     <title>Apache.Zookeeper.Net.Client</title>
     <authors>Apache ZooKeeper</authors>
     <owners>Oleg Demchenko</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Apache ZooKeeper .Net Client Library, built from: https://github.com/olegd/zookeeper </description>
     <releaseNotes>
+      3.3.4.10 - Set client to null to avoid infinite loop in SendRequests when connection to ZK fails.
     </releaseNotes>
     <copyright> Apache License Version 2.0, January 2004</copyright>
     <tags>Apache Zookeeper .Net-Client</tags>
