@@ -309,6 +309,7 @@ namespace ZooKeeperNet
                     if (!ar.AsyncWaitHandle.WaitOne(conn.ConnectionTimeout, false))
                     {
                         Cleanup(tempClient);
+                        tempClient = null;
                         throw new TimeoutException();
                     }
 
@@ -323,6 +324,7 @@ namespace ZooKeeperNet
                     if (ex is SocketException || ex is TimeoutException)
                     {
                         Cleanup(tempClient);
+                        tempClient = null;
 
                         zkEndpoints.CurrentEndPoint.SetAsFailure();
 
