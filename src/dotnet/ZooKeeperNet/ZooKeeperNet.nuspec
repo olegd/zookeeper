@@ -2,14 +2,14 @@
 <package >
   <metadata>
     <id>Apache.Zookeeper.Net.Client</id>
-    <version>3.3.4.12</version>
+    <version>3.3.4.13-alpha01</version>
     <title>Apache.Zookeeper.Net.Client</title>
     <authors>Apache ZooKeeper</authors>
     <owners>Oleg Demchenko</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Apache ZooKeeper .Net Client Library, built from: https://github.com/olegd/zookeeper </description>
     <releaseNotes>
-      3.3.4.11 - Set tcp client to null, when failed to connect to ZK, so that the proper Disconnect exception is thrown
+      3.3.4.12 - Set tcp client to null, when failed to connect to ZK, so that the proper Disconnect exception is thrown
       3.3.4.11 - Fix assembly version
       3.3.4.10 - Set client to null to avoid infinite loop in SendRequests when connection to ZK fails.
     </releaseNotes>

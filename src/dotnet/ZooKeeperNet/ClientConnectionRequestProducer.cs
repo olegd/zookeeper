@@ -212,9 +212,11 @@ namespace ZooKeeperNet
             // i don't think this is necessary, when we reached this block ....the state is surely not alive
             if (zooKeeper.State.IsAlive())
                 conn.consumer.QueueEvent(new WatchedEvent(KeeperState.Disconnected, EventType.None, null));
-                
-            if (LOG.IsDebugEnabled)
-                LOG.Debug("SendThread exitedloop.");
+
+            LOG.Warn("zookeeper SendThread exitedloop.");
+
+            //if (LOG.IsDebugEnabled)
+            //    LOG.Debug("SendThread exitedloop.");
         }
 
         private void Cleanup(TcpClient tcpClient)
