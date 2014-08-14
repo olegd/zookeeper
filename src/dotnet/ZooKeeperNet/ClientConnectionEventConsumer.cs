@@ -53,14 +53,12 @@ using System.Collections.Generic;
 
         private static void ProcessWatcher(IEnumerable<IWatcher> watchers,WatchedEvent watchedEvent)
         {
-            LOG.Info("ProcessWatcher entered");
             foreach (IWatcher watcher in watchers)
             {
                 try
                 {
                     if (null != watcher)
                     {
-                        LOG.InfoFormat("ProcessWatcher. Sending event to watcher. Event: {0}, Watcher: {1}", watchedEvent.State, watcher);
                         watcher.Process(watchedEvent);
                     }
                     else
@@ -87,7 +85,6 @@ using System.Collections.Generic;
                         ClientConnection.WatcherSetEventPair pair;
                         if (waitingEvents.TryDequeue(out pair))
                         {
-                            LOG.InfoFormat("PollEvents, Dequeued event. Sending to watchers. Keeper state: {0}", pair.WatchedEvent.State);
                             ProcessWatcher(pair.Watchers, pair.WatchedEvent);
                         }
                         else
@@ -124,10 +121,15 @@ using System.Collections.Generic;
 
         public void QueueEvent(WatchedEvent @event)
         {
-            LOG.InfoFormat("Queuing event. Event state: {0}", @event.State);
             if (@event.Type == EventType.None && sessionState == @event.State)
             {
-                LOG.InfoFormat("Session state hasn't changed, so will not send the event to the queue: SessionState: {1}, EventType: {0}", @event.Type, @event.State);
+                if (LOG.IsDebugEnabled)
+                {
+                    LOG.DebugFormat(
+                        "Session state hasn't changed, so will not send the event to the queue: SessionState: {1}, EventType: {0}",
+                        @event.Type,
+                        @event.State);
+                }
                 return;
             }
 
@@ -140,7 +142,6 @@ using System.Collections.Generic;
             var pair = new ClientConnection.WatcherSetEventPair(conn.watcher.Materialize(@event.State, @event.Type,@event.Path), @event);
             // queue the pair (watch set & event) for later processing
 
-            LOG.InfoFormat("Queued event. Event state: {0}", @event.State);
             waitingEvents.Enqueue(pair);
         }
 

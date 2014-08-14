@@ -213,10 +213,8 @@ namespace ZooKeeperNet
             if (zooKeeper.State.IsAlive())
                 conn.consumer.QueueEvent(new WatchedEvent(KeeperState.Disconnected, EventType.None, null));
 
-            LOG.Warn("zookeeper SendThread exitedloop.");
-
-            //if (LOG.IsDebugEnabled)
-            //    LOG.Debug("SendThread exitedloop.");
+            if (LOG.IsDebugEnabled)
+                LOG.Debug("zookeeper SendThread exitedloop.");
         }
 
         private void Cleanup(TcpClient tcpClient)
